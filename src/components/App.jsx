@@ -16,6 +16,11 @@ import { PrivateRoute } from "./route/PrivateRoute";
 import { RestrictedRoute } from "./route/RestrictedRoute";
 import { refreshUser } from "../redux/operations/authOperation";
 
+const HomePage = lazy(() => import("../pages/HomePage"));
+const RegisterPage = lazy(() => import("../pages/RegisterPage"));
+const LoginPage = lazy(() => import("../pages/LoginPage"));
+const ContactsPage = lazy(() => import("../pages/ContactsPage"));
+
 export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
