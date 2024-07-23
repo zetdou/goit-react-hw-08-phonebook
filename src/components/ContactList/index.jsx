@@ -1,7 +1,7 @@
 import React from "react";
 import { nanoid } from "nanoid";
 import PropTypes from "prop-types";
-import ContactListItem from "./ContactListItem";
+import ContactListItem from "../ContactItem";
 import styles from "../styles/ContactList.module.css";
 
 const ContactList = ({ contacts, onDelete }) => {

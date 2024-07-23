@@ -3,9 +3,9 @@ import { nanoid } from "nanoid";
 import PropTypes from "prop-types";
 import styles from "../styles/ContactForm.module.css";
 import { useDispatch } from "react-redux";
-import { setFilter } from "../redux/slices/filterSlice";
+import { setFilter } from "../../redux/slices/filterSlice";
 
-const Filter = ({ filter }) => {
+const ContactFilter = ({ filter }) => {
   const searchId = nanoid();
   const dispatch = useDispatch();
 
@@ -30,9 +30,9 @@ const Filter = ({ filter }) => {
   );
 };
 
-Filter.propTypes = {
+ContactFilter.propTypes = {
   filter: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default Filter;
+export default ContactFilter;
