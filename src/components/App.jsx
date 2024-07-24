@@ -1,20 +1,12 @@
 import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import ContactForm from "./ContactForm";
-import Filter from "./ContactFilter";
-import ContactList from "./ContactList";
-import styles from "../styles/App.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addContact,
-  removeContact,
-  fetchContacts,
-} from "../redux/operations/contactsOperation";
-import { setFilter } from "../redux/slices/filterSlice";
 import { useAuth } from "../hooks";
 import { PrivateRoute } from "./route/PrivateRoute";
 import { RestrictedRoute } from "./route/RestrictedRoute";
 import { refreshUser } from "../redux/operations/authOperation";
+import { MainLayout } from "../components/layouts/MainLayout";
+import { lazy } from "react";
 
 const HomePage = lazy(() => import("../pages/HomePage"));
 const RegisterPage = lazy(() => import("../pages/RegisterPage"));

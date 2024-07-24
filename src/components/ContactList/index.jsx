@@ -1,14 +1,13 @@
 import React from "react";
 import { nanoid } from "nanoid";
 import PropTypes from "prop-types";
-import ContactListItem from "../ContactItem";
-import styles from "../styles/ContactList.module.css";
+import ContactItem from "../ContactItem";
 
 const ContactList = ({ contacts, onDelete }) => {
   return (
-    <ul className={styles.contactList}>
+    <ul>
       {contacts.map(({ id, name, number }) => (
-        <ContactListItem
+        <ContactItem
           key={id}
           id={id}
           name={name}

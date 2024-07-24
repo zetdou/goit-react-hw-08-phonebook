@@ -1,7 +1,6 @@
 import React from "react";
 import { nanoid } from "nanoid";
 import PropTypes from "prop-types";
-import styles from "../styles/ContactForm.module.css";
 import { useDispatch } from "react-redux";
 import { setFilter } from "../../redux/slices/filterSlice";
 
@@ -14,12 +13,11 @@ const ContactFilter = ({ filter }) => {
   };
 
   return (
-    <div className={styles.filterContainer}>
-      <label className={styles.phonebookFormLabels} htmlFor={searchId}>
+    <div>
+      <label htmlFor={searchId}>
         Find contact
       </label>
       <input
-        className={styles.phonebookFormInputs}
         type="text"
         id={searchId}
         name="filter"

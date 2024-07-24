@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
 import PropTypes from "prop-types";
-import styles from "../styles/ContactForm.module.css";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/operations/contactsOperation";
 
@@ -36,12 +35,11 @@ const ContactForm = ({ onSubmit }) => {
   const numId = nanoid();
 
   return (
-    <form className={styles.phonebookForm} onSubmit={handleSubmit}>
-      <label className={styles.phonebookFormLabels} htmlFor={nameId}>
+    <form onSubmit={handleSubmit}>
+      <label htmlFor={nameId}>
         Name
       </label>
       <input
-        className={styles.phonebookFormInputs}
         id={nameId}
         type="text"
         name="name"
@@ -50,11 +48,10 @@ const ContactForm = ({ onSubmit }) => {
         value={name}
         onChange={handleChange}
       />
-      <label className={styles.phonebookFormLabels} htmlFor={numId}>
+      <label htmlFor={numId}>
         Phone number
       </label>
       <input
-        className={styles.phonebookFormInputs}
         id={numId}
         type="tel"
         name="number"
@@ -63,7 +60,7 @@ const ContactForm = ({ onSubmit }) => {
         value={number}
         onChange={handleChange}
       />
-      <button className={styles.phonebookFormBtn} type="submit">
+      <button type="submit">
         Add contact
       </button>
     </form>

@@ -48,7 +48,7 @@ export const refreshUser = createAsyncThunk(
 
     try {
       setAutHeader(persistedToken);
-      const res = await client.get("users/me");
+      const res = await client.get("users/current");
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
