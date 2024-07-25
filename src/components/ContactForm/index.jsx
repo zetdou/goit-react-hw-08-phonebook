@@ -36,9 +36,7 @@ const ContactForm = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor={nameId}>
-        Name
-      </label>
+      <label htmlFor={nameId}>Name</label>
       <input
         id={nameId}
         type="text"
@@ -48,9 +46,7 @@ const ContactForm = ({ onSubmit }) => {
         value={name}
         onChange={handleChange}
       />
-      <label htmlFor={numId}>
-        Phone number
-      </label>
+      <label htmlFor={numId}>Phone number</label>
       <input
         id={numId}
         type="tel"
@@ -60,9 +56,7 @@ const ContactForm = ({ onSubmit }) => {
         value={number}
         onChange={handleChange}
       />
-      <button type="submit">
-        Add contact
-      </button>
+      <button type="submit">Add contact</button>
     </form>
   );
 };

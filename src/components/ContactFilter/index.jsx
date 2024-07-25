@@ -14,9 +14,7 @@ const ContactFilter = ({ filter }) => {
 
   return (
     <div>
-      <label htmlFor={searchId}>
-        Find contact
-      </label>
+      <label htmlFor={searchId}>Find contact</label>
       <input
         type="text"
         id={searchId}
