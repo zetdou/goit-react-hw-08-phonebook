@@ -3,6 +3,7 @@ import { nanoid } from "nanoid";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { setFilter } from "../../redux/slices/filterSlice";
+import { TextField, Box } from "@mui/material";
 
 const ContactFilter = ({ filter }) => {
   const searchId = nanoid();
@@ -13,16 +14,15 @@ const ContactFilter = ({ filter }) => {
   };
 
   return (
-    <div>
-      <label htmlFor={searchId}>Find contact</label>
-      <input
+    <Box sx={{ my: 2 }}>
+      <TextField
+        label="Find contact"
         type="text"
-        id={searchId}
-        name="filter"
         value={filter}
         onChange={handleFilterChange}
+        fullWidth
       />
-    </div>
+    </Box>
   );
 };
 

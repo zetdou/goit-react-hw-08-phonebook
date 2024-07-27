@@ -15,6 +15,9 @@ import {
   removeContact,
   fetchContacts,
 } from "../redux/operations/contactsOperation";
+import Box from "@mui/material/Box";
+import LinearProgress from "@mui/material/LinearProgress";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Contacts() {
   const isLoading = useSelector(selectLoading);
@@ -29,7 +32,10 @@ export default function Contacts() {
 
   useEffect(() => {
     if (error !== null) {
-      alert(error);
+      toast.error(error, {
+        duration: 3000,
+        position: "bottom-center",
+      });
     }
   }, [error]);
 
@@ -58,7 +64,13 @@ export default function Contacts() {
       </HelmetProvider>
       <ContactForm onSubmit={addNewContact} />
       <ContactFilter filter={filter} onChange={handleFilterChange} />
-      <div>{isLoading && "Request in progress..."}</div>
+      <div>
+        {isLoading && (
+          <Box sx={{ width: "100%" }}>
+            <LinearProgress />
+          </Box>
+        )}
+      </div>
       <ContactList
         contacts={filteredContacts}
         onDelete={removeExistingContact}

@@ -3,6 +3,8 @@ import { nanoid } from "nanoid";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/operations/contactsOperation";
+import { TextField, Button, Tooltip, IconButton, Box } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
 
 const ContactForm = ({ onSubmit }) => {
   const [name, setName] = useState("");
@@ -35,29 +37,34 @@ const ContactForm = ({ onSubmit }) => {
   const numId = nanoid();
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor={nameId}>Name</label>
-      <input
-        id={nameId}
+    <Box
+      component="form"
+      onSubmit={handleSubmit}
+      sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+      <TextField
+        id="name"
+        label="Name"
         type="text"
         name="name"
-        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
         value={name}
         onChange={handleChange}
       />
-      <label htmlFor={numId}>Phone number</label>
-      <input
-        id={numId}
+      <TextField
+        id="number"
+        label="Phone number"
         type="tel"
         name="number"
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
         value={number}
         onChange={handleChange}
       />
-      <button type="submit">Add contact</button>
-    </form>
+      <Tooltip title="Add contact">
+        <IconButton type="submit" color="primary">
+          <AddIcon />
+        </IconButton>
+      </Tooltip>
+    </Box>
   );
 };
 

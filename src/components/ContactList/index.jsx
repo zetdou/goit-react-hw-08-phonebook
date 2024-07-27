@@ -2,10 +2,11 @@ import React from "react";
 import { nanoid } from "nanoid";
 import PropTypes from "prop-types";
 import ContactItem from "../ContactItem";
+import { List } from "@mui/material";
 
 const ContactList = ({ contacts, onDelete }) => {
   return (
-    <ul>
+    <List>
       {contacts.map(({ id, name, number }) => (
         <ContactItem
           key={id}
@@ -15,7 +16,7 @@ const ContactList = ({ contacts, onDelete }) => {
           onDelete={onDelete}
         />
       ))}
-    </ul>
+    </List>
   );
 };
 
