@@ -34,7 +34,6 @@ export default function Contacts() {
     if (error !== null) {
       toast.error(error, {
         duration: 3000,
-        position: "bottom-center",
       });
     }
   }, [error]);
