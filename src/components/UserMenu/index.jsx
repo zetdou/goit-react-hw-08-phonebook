@@ -15,9 +15,9 @@ export const UserMenu = () => {
 
   return (
     <Box display="flex" alignItems="center" gap={2}>
-      <Typography variant="body1">Welcome, {user.name}</Typography>
+      <Typography variant="body1">Welcome, {user.name}!</Typography>
       <Switch
-        checked={true} // Switch should be off initially
+        checked={true}
         onChange={handleLogoutToggle}
         color="secondary"
         inputProps={{ "aria-label": "Logout switch" }}

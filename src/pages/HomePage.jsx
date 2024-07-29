@@ -1,7 +1,9 @@
+import { Box, Typography } from "@mui/material";
+
 export default function Home() {
   return (
-    <div>
-      <h1>Welcome to the home page of your contacts book!</h1>
-    </div>
+    <Box>
+      <Typography textAlign="center" variant="h4" component="h1" paddingTop="30vh" gutterBottom>Welcome to the home page of your contacts book!</Typography>
+    </Box>
   );
 }

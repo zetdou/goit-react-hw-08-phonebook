@@ -15,8 +15,7 @@ import {
   removeContact,
   fetchContacts,
 } from "../redux/operations/contactsOperation";
-import Box from "@mui/material/Box";
-import LinearProgress from "@mui/material/LinearProgress";
+import { Container, Box, Typography, LinearProgress } from "@mui/material";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function Contacts() {
@@ -55,25 +54,27 @@ export default function Contacts() {
   );
 
   return (
-    <>
+    <Container>
       <HelmetProvider>
         <Helmet>
           <title>Your contacts</title>
         </Helmet>
       </HelmetProvider>
-      <ContactForm onSubmit={addNewContact} />
-      <ContactFilter filter={filter} onChange={handleFilterChange} />
-      <div>
-        {isLoading && (
-          <Box sx={{ width: "100%" }}>
-            <LinearProgress />
-          </Box>
+      <Box my={4}>
+        <Typography textAlign="center" variant="h4" component="h1" gutterBottom>
+          Your contacts
+        </Typography>
+        <ContactForm onSubmit={addNewContact} />
+        <ContactFilter filter={filter} onChange={handleFilterChange} />
+        {isLoading ? (
+          <LinearProgress />
+        ) : (
+          <ContactList
+            contacts={filteredContacts}
+            onDelete={removeExistingContact}
+          />
         )}
-      </div>
-      <ContactList
-        contacts={filteredContacts}
-        onDelete={removeExistingContact}
-      />
-    </>
+      </Box>
+    </Container>
   );
 }

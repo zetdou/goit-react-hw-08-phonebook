@@ -1,9 +1,14 @@
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/operations/authOperation";
-import { TextField, Button, Box } from "@mui/material";
+import { TextField, Button, Box, InputAdornment, IconButton } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = () => setShowPassword(!showPassword);
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
@@ -33,7 +38,23 @@ export const RegisterForm = () => {
       autoComplete="off">
       <TextField label="Username" type="text" name="name" required />
       <TextField label="Email" type="email" name="email" required />
-      <TextField label="Password" type="password" name="password" required />
+      <TextField
+        label="Password"
+        type={showPassword ? "text" : "password"}
+        name="password"
+        required
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <IconButton
+                onClick={handleClickShowPassword}
+                onMouseDown={(event) => event.preventDefault()}>
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+          ),
+        }}
+      />
       <Button type="submit" variant="contained" color="primary">
         Register
       </Button>
