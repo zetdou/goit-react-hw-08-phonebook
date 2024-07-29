@@ -6,6 +6,17 @@ import { addContact } from "../../redux/operations/contactsOperation";
 import { TextField, Button, Tooltip, IconButton, Box } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 
+const styles = {
+  button: {
+    width: 48, height: 48,
+    padding: 0,
+    margin: "0 auto",
+  },
+  icon: {
+    width: 48, height: 48,
+  },
+};
+
 const ContactForm = ({ onSubmit }) => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
@@ -60,7 +71,7 @@ const ContactForm = ({ onSubmit }) => {
         onChange={handleChange}
       />
       <Tooltip title="Add contact">
-        <IconButton type="submit" color="primary">
+        <IconButton style={styles.button} iconStyle={styles.icon} type="submit" color="primary">
           <AddIcon />
         </IconButton>
       </Tooltip>
